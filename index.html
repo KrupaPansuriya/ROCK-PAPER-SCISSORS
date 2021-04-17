@@ -89,7 +89,7 @@
 
 
             function game() {
-               
+
                 let computerSelection = computerPlay();
                 let playerSelection = userPlay();
                 let result = checkWinner(playerSelection, computerSelection);
@@ -109,18 +109,23 @@
                 if (result === 'Draw') {
                     result += '. It\'s a tie!'
                 }
-                
+
                 // Display results
                 console.log(result);
                 console.log('Player: [ ' + winnerScores[0] + ' ] Computer: [ ' + winnerScores[1] + ' ]');
             }
 
-            function roundPlay()
-            {
-                for(i=0 ; i<5; i++){
+            function roundPlay() {
+                for (i = 0; i < 5; i++) {
                     game();
                 }
-               
+                if (winnerScores[0] > winnerScores[1]) {
+                    console.log("Player Wins!!");
+                } else if (winnerScores[0] == winnerScores[1]) {
+                    console.log("It's a tie!!");
+                } else {
+                    console.log("Computer Wins!!");
+                }
             }
             let winnerScores = [0, 0];
             roundPlay();
